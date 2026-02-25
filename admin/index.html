@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Church Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>⛪ CHURCH ADMIN</h1>
+            <h2>Admin Login</h2>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" placeholder="Enter your username" required autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter your password" required autocomplete="off">
+                </div>
+
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+
+            <div id="loginError" class="error-message"></div>
+
+            <div class="demo-credentials">
+                <p><strong>Demo Credentials:</strong></p>
+                <p>Username: <code>Admin Username</code> | Password: <code>Admin Password</code></p>
+                <p>Username: <code>A......</code> | Password: <code>a......</code></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    
+    <script>
+        // Direct login handler - AFTER app.js loads
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            console.log('Login attempt:', username, password); // DEBUG
+
+            // Valid credentials
+            const validUsers = [
+                { username: 'Ayomide', password: 'ayojesu123' },
+                { username: 'Ayojesu', password: 'ayojesu001' }
+            ];
+
+            const user = validUsers.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                console.log('Login successful!'); // DEBUG
+                // Set session
+                localStorage.setItem('adminLoggedIn', 'true');
+                localStorage.setItem('currentAdmin', username);
+                
+                // Redirect to dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                console.log('Login failed!'); // DEBUG
+                const errorDiv = document.getElementById('loginError');
+                errorDiv.textContent = '❌ Invalid username or password. Please try again.';
+                errorDiv.classList.add('show');
+                
+                // Clear error after 3 seconds
+                setTimeout(() => {
+                    errorDiv.classList.remove('show');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

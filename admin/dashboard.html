@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Church</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>⛪ Admin Panel</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link active">🏠 Dashboard</a>
+                <a href="ministry-requests.html" class="nav-link">📋 Ministry Requests</a>
+                <a href="manage-ministries.html" class="nav-link">⛪ Ministries</a>
+                <a href="messages.html" class="nav-link">📨 Messages</a>
+                <a href="index.html" class="nav-link logout" onclick="logout()">🚪 Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Admin Dashboard</h1>
+                <div class="user-info">
+                    <span id="currentUser">Welcome, Admin</span>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Statistics Cards -->
+                <section class="stats-section">
+                    <div class="stat-card">
+                        <h3>Total Requests</h3>
+                        <p class="stat-number" id="totalRequests">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Children Ministry</h3>
+                        <p class="stat-number" id="childrenCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Youth Ministry</h3>
+                        <p class="stat-number" id="youthCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Outreach Ministry</h3>
+                        <p class="stat-number" id="outreachCount">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Women's Ministry</h3>
+                        <p class="stat-number" id="women'sCount">0</p>
+                    </div>
+                </section>
+
+                <!-- Recent Requests -->
+                <section class="recent-section">
+                    <h2>Recent Ministry Requests</h2>
+                    <div id="recentRequests" class="recent-list">
+                        <p class="no-data">No recent requests</p>
+                    </div>
+                </section>
+
+                <!-- Recent Messages -->
+                <section class="recent-section">
+                    <h2>Recent Contact Messages</h2>
+                    <div id="recentMessages" class="recent-list">
+                        <p class="no-data">No recent messages</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Check if user is logged in
+        if (!localStorage.getItem('adminLoggedIn')) {
+            window.location.href = 'index.html';
+        }
+
+        // Load and display dashboard data
+        function loadDashboard() {
+            const requests = JSON.parse(localStorage.getItem('ministryRequests')) || [];
+            const messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+            const currentUser = localStorage.getItem('currentAdmin');
+
+            document.getElementById('currentUser').textContent = `Welcome, ${currentUser}`;
+
+            // Calculate statistics
+            const totalRequests = requests.length;
+            const childrenCount = requests.filter(r => r.ministry === 'Children Ministry').length;
+            const youthCount = requests.filter(r => r.ministry === 'Youth Ministry').length;
+            const outreachCount = requests.filter(r => r.ministry === 'Outreach Ministry').length;
+
+            document.getElementById('totalRequests').textContent = totalRequests;
+            document.getElementById('childrenCount').textContent = childrenCount;
+            document.getElementById('youthCount').textContent = youthCount;
+            document.getElementById('outreachCount').textContent = outreachCount;
+
+            // Display recent requests
+            const recentRequestsDiv = document.getElementById('recentRequests');
+            if (requests.length > 0) {
+                const recent = requests.slice(-5).reverse();
+                recentRequestsDiv.innerHTML = recent.map(req => 
+                    `<div class="recent-item">
+                        <strong>${req.name}</strong> – ${req.ministry}
+                    </div>`
+                ).join('');
+            } else {
+                recentRequestsDiv.innerHTML = '<p class="no-data">No recent requests</p>';
+            }
+
+            // Display recent messages
+            const recentMessagesDiv = document.getElementById('recentMessages');
+            if (messages.length > 0) {
+                const recentMsgs = messages.slice(-5).reverse();
+                recentMessagesDiv.innerHTML = recentMsgs.map(msg => 
+                    `<div class="recent-item">
+                        <strong>${msg.name}</strong> – ${msg.message.substring(0, 50)}...
+                    </div>`
+                ).join('');
+            } else {
+                recentMessagesDiv.innerHTML = '<p class="no-data">No recent messages</p>';
+            }
+        }
+
+        loadDashboard();
+    </script>
+</body>
+</html>
