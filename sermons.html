@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sermon — Foursquare Gospel Church, Ijoko District HQ</title>
+  <meta name="description" content="Watch or listen to sermons from Foursquare Gospel Church — Ijoko Missionary District Headquarters.">
+  <link rel="icon" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Foursquare Ijoko logo" class="logo">
+        <span class="brand-text">Foursquare Gospel Church — Ijoko District HQ</span>
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="sermons.html" class="active">Sermons</a></li>
+          <li><a href="staff.html">Leadership</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html" class="btn-donate">Give</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <section class="hero hero-sm">
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <h1 id="sermon-title">Sermon Title</h1>
+          <p id="sermon-meta" class="muted">Date • Speaker • Duration</p>
+          <div class="hero-ctas">
+            <a class="btn" href="sermons.html">All Sermons</a>
+            <a class="btn btn-outline" id="download-notes" href="#" download>Download Notes</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img id="sermon-hero" img src="assets/sermon-hero.jpg" alt="Sermon image" loading="lazy" width="1200" height="700">
+        </div>
+      </div>
+    </section>
+
+    <section class="container sermon-player">
+      <div class="media-wrap">
+        <!-- Video embed area (iframe inserted by JS if video exists); otherwise audio shown -->
+        <div id="media-container" class="media-container" aria-live="polite">
+          <!-- Fallback: image shown above; JS will insert iframe or audio element here -->
+        </div>
+      </div>
+
+      <div class="sermon-content">
+        <article id="sermon-body">
+          <h2>Summary</h2>
+          <p id="sermon-summary">Short summary or excerpt about the sermon will appear here.</p>
+
+          <h3>Resources</h3>
+          <ul id="sermon-resources">
+            <!-- Populated by JS: links to notes, slides, further reading -->
+          </ul>
+
+          <h3>Transcript</h3>
+          <button id="toggle-transcript" class="btn btn-outline" aria-expanded="false" aria-controls="transcript">Show transcript</button>
+          <div id="transcript" class="sermon-transcript" hidden>
+            <p id="transcript-text">Transcript will appear here if available.</p>
+          </div>
+
+          <h3>Share</h3>
+          <p>
+            <a id="share-email" class="link" href="#">Share by email</a> ·
+            <a id="share-twitter" class="link" href="#" target="_blank" rel="noopener">Share on Twitter</a>
+          </p>
+        </article>
+
+        <aside class="related-sermons" aria-labelledby="related-heading">
+          <h3 id="related-heading">Related Sermons</h3>
+          <ul id="related-list">
+            <!-- JS will insert related sermons -->
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-about">
+        <a href="index.html" class="brand-mini">
+          <img src="assets/logo-white.png" alt="Foursquare Ijoko logo" width="120" height="40">
+        </a>
+        <p>Foursquare Gospel Church — Ijoko Missionary District Headquarters.<br>We exist to lead people into a growing relationship with Jesus Christ.</p>
+        <p><strong>Address:</strong> Ijoko, Ogun State, Nigeria</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <p><strong>Service times:</strong> Sun 8:00 & 10:30 AM</p>
+        <p><strong>Email:</strong> <a href="mailto:info@foursquare-ijoko.example">info@foursquare-ijoko.example</a></p>
+        <p><strong>Phone:</strong> +234 800 000 0000 (placeholder)</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <small>© <span id="current-year"></span> Foursquare Gospel Church — Ijoko Missionary District Headquarters</small>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+  <script>
+  (function () {
+    // Set footer year
+    var yEl = document.getElementById('current-year');
+    if (yEl) yEl.textContent = new Date().getFullYear();
+
+    // Simple client-side sermon loader (static data). Use server/API in production.
+    var sermons = {
+      "encountering-presence": {
+        id: "encountering-presence",
+        title: "Encountering God's Presence",
+        date: "2025-12-07T10:30:00",
+        displayDate: "Dec 7, 2025",
+        speaker: "District Pastor",
+        duration: "45:12",
+        hero: "assets/sermons/encountering-presence.jpg",
+        video: "https://www.youtube.com/embed/VIDEO_ID_HERE", // replace if available
+        audio: "assets/sermons/encountering-presence.mp3",
+        notes: "assets/sermons/encountering-presence-notes.pdf",
+        summary: "An invitation to seek and steward God's presence in everyday life, encouraging practical rhythms of prayer and holiness.",
+        transcript: "Full transcript text for Encountering God's Presence. Replace with real transcript or load from file.",
+        related: ["faith-and-action", "walking-in-holiness"]
+      },
+      "faith-and-action": {
+        id: "faith-and-action",
+        title: "Faith and Action",
+        date: "2025-11-23T10:30:00",
+        displayDate: "Nov 23, 2025",
+        speaker: "Rev. Sarah Ade",
+        hero: "assets/sermons/faith-and-action.jpg",
+        audio: "assets/sermons/faith-and-action.mp3",
+        notes: "assets/sermons/faith-and-action-notes.pdf",
+        summary: "Encouragement to live out faith with practical compassion and service.",
+        transcript: "",
+        related: ["encountering-presence"]
+      },
+      "walking-in-holiness": {
+        id: "walking-in-holiness",
+        title: "Walking in Holiness",
+        date: "2025-10-12T08:00:00",
+        displayDate: "Oct 12, 2025",
+        speaker: "Pastor John",
+        hero: "assets/sermons/walking-in-holiness.jpg",
+        audio: "assets/sermons/walking-in-holiness.mp3",
+        notes: "",
+        summary: "A teaching on holiness as a practical, grace-filled walk rather than legalism.",
+        transcript: "",
+        related: ["faith-and-action"]
+      }
+    };
+
+    // Get sermon id from query param ?id=encountering-presence, default to the first one
+    var params = new URLSearchParams(location.search);
+    var id = params.get('id') || 'encountering-presence';
+    var sermon = sermons[id] || Object.values(sermons)[0];
+
+    // Populate page
+    document.getElementById('sermon-title').textContent = sermon.title;
+    document.getElementById('sermon-meta').textContent = (sermon.displayDate || sermon.date) + ' • ' + (sermon.speaker || '') + (sermon.duration ? ' • ' + sermon.duration : '');
+    var hero = document.getElementById('sermon-hero');
+    if (sermon.hero) hero.src = sermon.hero;
+
+    // Media container: prefer video, fallback to audio player
+    var mediaContainer = document.getElementById('media-container');
+    mediaContainer.innerHTML = '';
+    if (sermon.video && sermon.video.indexOf('youtube') !== -1) {
+      var iframe = document.createElement('iframe');
+      iframe.width = '100%';
+      iframe.height = '480';
+      iframe.src = sermon.video;
+      iframe.title = sermon.title + ' — video';
+      iframe.frameBorder = '0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      mediaContainer.appendChild(iframe);
+    } else if (sermon.audio) {
+      var audio = document.createElement('audio');
+      audio.controls = true;
+      audio.preload = 'none';
+      var src = document.createElement('source');
+      src.src = sermon.audio;
+      src.type = 'audio/mpeg';
+      audio.appendChild(src);
+      mediaContainer.appendChild(audio);
+    } else {
+      mediaContainer.innerHTML = '<p class="muted">Media for this sermon is not available yet.</p>';
+    }
+
+    // Notes download link
+    var downloadNotes = document.getElementById('download-notes');
+    if (sermon.notes) {
+      downloadNotes.href = sermon.notes;
+      downloadNotes.removeAttribute('hidden');
+    } else {
+      downloadNotes.hidden = true;
+    }
+
+    // Summary
+    document.getElementById('sermon-summary').textContent = sermon.summary || '';
+
+    // Resources list
+    var resources = document.getElementById('sermon-resources');
+    resources.innerHTML = '';
+    if (sermon.notes) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = sermon.notes;
+      a.download = '';
+      a.textContent = 'Download sermon notes';
+      li.appendChild(a);
+      resources.appendChild(li);
+    }
+    // example additional resource:
+    var slides = sermon.slides || '';
+    if (slides) {
+      var li2 = document.createElement('li');
+      var a2 = document.createElement('a');
+      a2.href = slides;
+      a2.textContent = 'View slides';
+      li2.appendChild(a2);
+      resources.appendChild(li2);
+    }
+    if (!resources.children.length) {
+      resources.innerHTML = '<li class="muted">No additional resources available.</li>';
+    }
+
+    // Transcript toggle
+    var toggleBtn = document.getElementById('toggle-transcript');
+    var transcriptContainer = document.getElementById('transcript');
+    var transcriptText = document.getElementById('transcript-text');
+    if (sermon.transcript) {
+      transcriptText.textContent = sermon.transcript;
+      toggleBtn.disabled = false;
+    } else {
+      transcriptText.textContent = 'Transcript not available.';
+      toggleBtn.disabled = false;
+    }
+
+    toggleBtn.addEventListener('click', function () {
+      var hidden = transcriptContainer.hidden;
+      transcriptContainer.hidden = !hidden;
+      toggleBtn.setAttribute('aria-expanded', String(hidden));
+      if (!transcriptContainer.hidden) transcriptContainer.querySelector('#transcript-text').focus();
+    });
+
+    // Related sermons list
+    var relatedList = document.getElementById('related-list');
+    relatedList.innerHTML = '';
+    if (sermon.related && sermon.related.length) {
+      sermon.related.forEach(function (rid) {
+        var r = sermons[rid];
+        if (!r) return;
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = 'sermon.html?id=' + encodeURIComponent(r.id);
+        a.textContent = (r.title || r.id) + ' — ' + (r.displayDate || '');
+        li.appendChild(a);
+        relatedList.appendChild(li);
+      });
+    } else {
+      // show a few recent sermons
+      Object.values(sermons).slice(0,3).forEach(function (r) {
+        if (r.id === sermon.id) return;
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = 'sermon.html?id=' + encodeURIComponent(r.id);
+        a.textContent = (r.title || r.id) + ' — ' + (r.displayDate || '');
+        li.appendChild(a);
+        relatedList.appendChild(li);
+      });
+    }
+
+    // Share links
+    var pageUrl = location.href;
+    var shareEmail = document.getElementById('share-email');
+    shareEmail.href = 'mailto:?subject=' + encodeURIComponent('Sermon: ' + sermon.title) + '&body=' + encodeURIComponent(sermon.title + '\n' + pageUrl);
+    var twitter = document.getElementById('share-twitter');
+    twitter.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(sermon.title + ' — ' + (sermon.speaker || '') ) + '&url=' + encodeURIComponent(pageUrl);
+
+    // Structured data for SEO (Event/CreativeWork)
+    var ld = {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": sermon.title,
+      "author": { "@type": "Person", "name": sermon.speaker || '' },
+      "datePublished": sermon.date,
+      "description": sermon.summary || '',
+      "publisher": { "@type": "Organization", "name": "Foursquare Gospel Church — Ijoko" }
+    };
+    var script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(ld);
+    document.head.appendChild(script);
+
+  })();
+  </script>
+</body>
+</html>

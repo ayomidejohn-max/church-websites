@@ -1,0 +1,345 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Events — Foursquare Gospel Church, Ijoko District HQ</title>
+  <meta name="description" content="Upcoming events at Foursquare Gospel Church — Ijoko Missionary District Headquarters.">
+  <link rel="icon" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .countdown {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #d32f2f;
+      margin: 10px 0;
+    }
+    .countdown-item {
+      display: inline-block;
+      margin-right: 15px;
+    }
+    .countdown-value {
+      font-size: 1.5em;
+      display: block;
+      color: #1976d2;
+    }
+    .countdown-label {
+      font-size: 0.8em;
+      color: #666;
+    }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .event-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      background: #f9f9f9;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .event-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
+    }
+    .event-card h3 {
+      margin-top: 0;
+      color: #1976d2;
+    }
+    .event-card p {
+      margin: 8px 0;
+      font-size: 0.95em;
+    }
+    .event-date-time {
+      font-weight: bold;
+      color: #333;
+    }
+    .event-card-countdown {
+      background: #fff3e0;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      margin-top: 10px;
+      color: #e65100;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Foursquare Ijoko logo" class="logo">
+        <span class="brand-text">Foursquare Gospel Church — Ijoko District HQ</span>
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="events.html" class="active">Events</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="staff.html">Leadership</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html" class="btn-donate">Give</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <section class="hero hero-sm">
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <h1>Upcoming Events</h1>
+          <p>Join us for worship, fellowship, outreach, and spiritual growth.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>Events at Foursquare Gospel Church</h2>
+      
+      <!-- Next Event Countdown -->
+      <div id="next-event-container" style="background: #f0f7ff; padding: 20px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #1976d2;">
+        <h3>⏰ Next Event: <span id="next-event-title">Loading...</span></h3>
+        <p id="next-event-info" style="margin: 10px 0;"></p>
+        <div id="countdown" class="countdown"></div>
+      </div>
+
+      <!-- Events Grid -->
+      <div class="events-grid" id="events-grid">
+        <p>Loading events...</p>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-about">
+      <a href="index.html" class="brand-mini">
+        <img src="assets/logo-white.png" alt="Foursquare Ijoko logo" width="120" height="40">
+      </a>
+      <p>Foursquare Gospel Church — Ijoko Missionary District Headquarters.<br>We exist to lead people into a growing relationship with Jesus Christ.</p>
+      <p><strong>Address:</strong> Ijoko, Ogun State, Nigeria</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ministries.html">Ministries</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </nav>
+    <div class="footer-contact">
+      <p><strong>Service times:</strong> Sun 8:00 & 10:30 AM</p>
+      <p><strong>Email:</strong> <a href="mailto:info@foursquare-ijoko.example">info@foursquare-ijoko.example</a></p>
+      <p><strong>Phone:</strong> +234 800 000 0000</p>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <small>© <span id="current-year"></span> Foursquare Gospel Church — Ijoko Missionary District Headquarters</small>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+
+  <script>
+    (function () {
+      var yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // 10 Upcoming Events
+      var events = [
+        {
+          id: 'sunday-1',
+          title: 'Sunday Service',
+          date: '2026-03-01T10:30:00',
+          time: '10:30 AM',
+          location: 'Ijoko District Headquarters',
+          image: 'assets/events-sunday.jpg',
+          description: 'Join us for our weekly Sunday service with worship, prayer, and inspiring message.'
+        },
+        {
+          id: 'prayer-night-1',
+          title: 'Night of Prayer & Intercession',
+          date: '2026-03-07T22:00:00',
+          time: '10:00 PM',
+          location: 'Main Sanctuary',
+          image: 'assets/events-prayer.jpg',
+          description: 'A night dedicated to prayer, worship, and intercession for the church and community.'
+        },
+        {
+          id: 'youth-conf-1',
+          title: 'Youth Leaders Conference',
+          date: '2026-03-14T09:00:00',
+          time: '9:00 AM',
+          location: 'Conference Hall',
+          image: 'assets/events-youth.jpg',
+          description: 'Equipping young leaders with tools and inspiration for effective ministry.'
+        },
+        {
+          id: 'women-fellowship-1',
+          title: 'Women\'s Fellowship & Workshop',
+          date: '2026-03-21T14:00:00',
+          time: '2:00 PM',
+          location: 'Fellowship Hall',
+          image: 'assets/events-women.jpg',
+          description: 'A gathering for women to fellowship, learn, and grow together in faith.'
+        },
+        {
+          id: 'easter-crusade-1',
+          title: 'Easter Crusade & Revival',
+          date: '2026-04-11T10:00:00',
+          time: '10:00 AM',
+          location: 'Church Grounds',
+          image: 'assets/events-easter.jpg',
+          description: 'A revival crusade celebrating the resurrection of Jesus Christ with powerful worship.'
+        },
+        {
+          id: 'children-camp-1',
+          title: 'Children\'s Summer Camp',
+          date: '2026-05-02T08:00:00',
+          time: '8:00 AM',
+          location: 'Church Grounds',
+          image: 'assets/events-children.jpg',
+          description: 'A fun-filled camp for children aged 5-12 with games, activities, and Bible lessons.'
+        },
+        {
+          id: 'outreach-1',
+          title: 'Community Outreach Program',
+          date: '2026-05-10T08:30:00',
+          time: '8:30 AM',
+          location: 'Ijoko Community',
+          image: 'assets/events-outreach.jpg',
+          description: 'Monthly outreach providing food, clothing, and gospel to those in need.'
+        },
+        {
+          id: 'men-retreat-1',
+          title: 'Men\'s Spiritual Retreat',
+          date: '2026-06-13T09:00:00',
+          time: '9:00 AM',
+          location: 'Retreat Center',
+          image: 'assets/events-men.jpg',
+          description: 'A retreat for men to strengthen faith, build brotherhood, and grow in leadership.'
+        },
+        {
+          id: 'midsummer-fest-1',
+          title: 'Midsummer Church Festival',
+          date: '2026-07-04T10:00:00',
+          time: '10:00 AM',
+          location: 'Church Grounds',
+          image: 'assets/events-festival.jpg',
+          description: 'A joyful festival with praise, worship, entertainment, food, and family activities.'
+        },
+        {
+          id: 'thanksgiving-1',
+          title: 'Thanksgiving Service',
+          date: '2026-11-29T10:00:00',
+          time: '10:00 AM',
+          location: 'Ijoko District Headquarters',
+          image: 'assets/events-thanksgiving.jpg',
+          description: 'A service of thanksgiving and praise for God\'s goodness throughout the year.'
+        }
+      ];
+
+      // Sort events by date
+      events.sort(function(a, b) {
+        return new Date(a.date) - new Date(b.date);
+      });
+
+      // Display events
+      var grid = document.getElementById('events-grid');
+      if (grid) {
+        grid.innerHTML = events.map(function(event) {
+          return '<div class="event-card" onclick="viewEvent(\'' + event.id + '\')">' +
+            '<h3>' + event.title + '</h3>' +
+            '<p class="event-date-time">📅 ' + formatDate(event.date) + ' at ' + event.time + '</p>' +
+            '<p>📍 ' + event.location + '</p>' +
+            '<p>' + event.description + '</p>' +
+            '<div class="event-card-countdown" data-event-id="' + event.id + '">Countdown...</div>' +
+            '</div>';
+        }).join('');
+      }
+
+      // Countdown function
+      function updateCountdowns() {
+        var now = new Date().getTime();
+        var nextEvent = null;
+        var nextTime = Infinity;
+
+        events.forEach(function(event) {
+          var eventTime = new Date(event.date).getTime();
+          var distance = eventTime - now;
+
+          if (distance > 0 && distance < nextTime) {
+            nextTime = distance;
+            nextEvent = event;
+          }
+
+          // Update individual event countdowns
+          var countdownEl = document.querySelector('[data-event-id="' + event.id + '"]');
+          if (countdownEl) {
+            if (distance < 0) {
+              countdownEl.textContent = '✅ Event has passed';
+              countdownEl.style.background = '#e8f5e9';
+              countdownEl.style.color = '#2e7d32';
+            } else {
+              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              countdownEl.textContent = days + 'd ' + hours + 'h ' + minutes + 'm';
+            }
+          }
+        });
+
+        // Update next event countdown
+        if (nextEvent) {
+          var distance = new Date(nextEvent.date).getTime() - now;
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById('next-event-title').textContent = nextEvent.title;
+          document.getElementById('next-event-info').textContent = formatDate(nextEvent.date) + ' at ' + nextEvent.time;
+          
+          var countdownDiv = document.getElementById('countdown');
+          countdownDiv.innerHTML = 
+            '<div class="countdown-item"><span class="countdown-value">' + days + '</span><span class="countdown-label">Days</span></div>' +
+            '<div class="countdown-item"><span class="countdown-value">' + hours + '</span><span class="countdown-label">Hours</span></div>' +
+            '<div class="countdown-item"><span class="countdown-value">' + minutes + '</span><span class="countdown-label">Minutes</span></div>' +
+            '<div class="countdown-item"><span class="countdown-value">' + seconds + '</span><span class="countdown-label">Seconds</span></div>';
+        }
+      }
+
+      // Format date helper
+      function formatDate(dateStr) {
+        var options = { year: 'numeric', month: 'short', day: 'numeric' };
+        return new Date(dateStr).toLocaleDateString('en-US', options);
+      }
+
+      // Update countdowns every second
+      updateCountdowns();
+      setInterval(updateCountdowns, 1000);
+
+      // View event function
+      window.viewEvent = function(id) {
+        window.viewEvent = function(id) {
+  window.location.href = 'event-details.html?id=' + id;
+};
+      };
+    })();
+  </script>
+</body>
+</html>

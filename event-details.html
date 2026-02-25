@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Event Details — Foursquare Gospel Church, Ijoko District HQ</title>
+  <meta name="description" content="Event details, speakers, schedule and photos for Foursquare Gospel Church events.">
+  <link rel="icon" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .event-detail-hero {
+      position: relative;
+      height: 400px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+    .event-detail-hero img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+    }
+    .event-detail-content {
+      position: relative;
+      z-index: 2;
+    }
+    .event-detail-content h1 {
+      font-size: 2.5em;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .event-meta-info {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+      justify-content: center;
+      font-size: 1.1em;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin: 30px 0;
+      border-bottom: 2px solid #ddd;
+      flex-wrap: wrap;
+    }
+    .tab-button {
+      padding: 12px 24px;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      color: #666;
+    }
+    .tab-button.active {
+      color: #1976d2;
+      border-bottom-color: #1976d2;
+    }
+    .tab-button:hover {
+      color: #1976d2;
+    }
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .speaker-card {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    .speaker-card h3 {
+      color: #1976d2;
+      margin: 15px 0 5px 0;
+    }
+    .speaker-card p {
+      color: #666;
+      font-size: 0.95em;
+      margin: 5px 0;
+    }
+    .schedule-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    .schedule-item {
+      padding: 15px;
+      margin: 10px 0;
+      background: #f0f7ff;
+      border-left: 4px solid #1976d2;
+      border-radius: 4px;
+    }
+    .schedule-time {
+      font-weight: bold;
+      color: #1976d2;
+      font-size: 1.1em;
+    }
+    .schedule-activity {
+      color: #333;
+      margin-top: 5px;
+    }
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .photo-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      height: 250px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .photo-item:hover {
+      transform: scale(1.05);
+    }
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .photo-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .photo-item:hover .photo-overlay {
+      opacity: 1;
+    }
+    .photo-overlay span {
+      color: white;
+      font-size: 1.5em;
+    }
+    .rsvp-button {
+      background: #1976d2;
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+    .rsvp-button:hover {
+      background: #1565c0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .countdown {
+      background: #fff3e0;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 4px solid #f57c00;
+    }
+    .countdown-timer {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .countdown-box {
+      text-align: center;
+    }
+    .countdown-number {
+      font-size: 2em;
+      font-weight: bold;
+      color: #f57c00;
+    }
+    .countdown-label {
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Foursquare Ijoko logo" class="logo">
+        <span class="brand-text">Foursquare Gospel Church — Ijoko District HQ</span>
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="staff.html">Leadership</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html" class="btn-donate">Give</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <!-- Hero Section with Event Image -->
+    <div class="event-detail-hero">
+      <img id="event-hero-image" src="assets/events-placeholder.jpg" alt="Event image">
+      <div class="event-detail-content">
+        <h1 id="event-detail-title">Event Title</h1>
+        <div class="event-meta-info">
+          <div class="meta-item">
+            📅 <span id="event-detail-date">Date</span>
+          </div>
+          <div class="meta-item">
+            🕐 <span id="event-detail-time">Time</span>
+          </div>
+          <div class="meta-item">
+            📍 <span id="event-detail-location">Location</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="container">
+      <!-- Countdown Timer Section -->
+      <div class="countdown" id="countdown-section">
+        <h3>⏰ Event Starts In:</h3>
+        <div class="countdown-timer" id="countdown-timer">
+          <div class="countdown-box">
+            <div class="countdown-number" id="countdown-days">0</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="countdown-hours">0</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="countdown-minutes">0</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="countdown-seconds">0</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Navigation Buttons -->
+      <div class="tabs">
+        <button class="tab-button active" onclick="switchTab('description')">📝 Description</button>
+        <button class="tab-button" onclick="switchTab('schedule')">📋 Schedule</button>
+        <button class="tab-button" onclick="switchTab('speakers')">🎤 Speakers</button>
+        <button class="tab-button" onclick="switchTab('photos')">📸 Photos</button>
+      </div>
+
+      <!-- Tab 1: Description -->
+      <div id="description" class="tab-content active">
+        <h2>About This Event</h2>
+        <p id="event-description">Loading event description...</p>
+        <button class="rsvp-button" onclick="openRSVP()">RSVP for this Event</button>
+      </div>
+
+      <!-- Tab 2: Schedule -->
+      <div id="schedule" class="tab-content">
+        <h2>Schedule</h2>
+        <ul class="schedule-list" id="schedule-list">
+          <li class="schedule-item">
+            <div class="schedule-time">Loading...</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tab 3: Speakers -->
+      <div id="speakers" class="tab-content">
+        <h2>Speakers & Hosts</h2>
+        <div class="speakers-grid" id="speakers-grid">
+          <p>Loading speakers...</p>
+        </div>
+      </div>
+
+      <!-- Tab 4: Photos -->
+      <div id="photos" class="tab-content">
+        <h2>Event Photos</h2>
+        <div class="photo-gallery" id="photo-gallery">
+          <p>No photos available yet.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-about">
+      <a href="index.html" class="brand-mini">
+        <img src="assets/logo-white.png" alt="Foursquare Ijoko logo" width="120" height="40">
+      </a>
+      <p>Foursquare Gospel Church — Ijoko Missionary District Headquarters.<br>We exist to lead people into a growing relationship with Jesus Christ.</p>
+      <p><strong>Address:</strong> Ijoko, Ogun State, Nigeria</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ministries.html">Ministries</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </nav>
+    <div class="footer-contact">
+      <p><strong>Service times:</strong> Sun 8:00 & 10:30 AM</p>
+      <p><strong>Email:</strong> <a href="mailto:info@foursquare-ijoko.example">info@foursquare-ijoko.example</a></p>
+      <p><strong>Phone:</strong> +234 800 000 0000</p>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <small>© <span id="current-year"></span> Foursquare Gospel Church — Ijoko Missionary District Headquarters</small>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+
+  <script>
+    (function () {
+      var yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // All 10 Events with full details
+      var allEvents = {
+        'sunday-1': {
+          title: 'Sunday Service',
+          date: '2026-03-01T10:30:00',
+          displayDate: 'Mar 01, 2026',
+          time: '10:30 AM',
+          location: 'Ijoko District Headquarters',
+          image: 'assets/events-sunday.jpg',
+          description: 'Join us for our weekly Sunday service with worship, prayer, and inspiring message. This is a family-friendly service where all are welcome to experience God\'s presence and grow in faith.',
+          schedule: [
+            { time: '9:00 AM', activity: 'Welcome & Registration' },
+            { time: '9:30 AM', activity: 'Praise & Worship' },
+            { time: '10:30 AM', activity: 'Message from the Word' },
+            { time: '11:30 AM', activity: 'Altar Call & Ministry' },
+            { time: '12:00 PM', activity: 'Fellowship & Refreshments' }
+          ],
+          speakers: [
+            { name: 'Pastor Emmanuel', role: 'District Pastor', bio: 'Senior pastor with 20+ years of ministry experience' },
+            { name: 'Bro. Adewale', role: 'Worship Leader', bio: 'Leading worship with a heart for God' }
+          ],
+          photos: [
+            'assets/photos/sunday-1.jpg',
+            'assets/photos/sunday-2.jpg',
+            'assets/photos/sunday-3.jpg',
+            'assets/photos/sunday-4.jpg'
+          ]
+        },
+        'prayer-night-1': {
+          title: 'Night of Prayer & Intercession',
+          date: '2026-03-07T22:00:00',
+          displayDate: 'Mar 07, 2026',
+          time: '10:00 PM',
+          location: 'Main Sanctuary',
+          image: 'assets/events-prayer.jpg',
+          description: 'A night dedicated to prayer, worship, and intercession for the church and community. Come prepared to pray for revival, healing, and God\'s work around the world.',
+          schedule: [
+            { time: '10:00 PM', activity: 'Opening Worship & Song' },
+            { time: '10:30 PM', activity: 'Prayer for the Church' },
+            { time: '11:00 PM', activity: 'Prayer for the Nation' },
+            { time: '11:30 PM', activity: 'Personal Prayer Time' },
+            { time: '12:30 AM', activity: 'Refreshments & Fellowship' },
+            { time: '1:00 AM', activity: 'Closing Prayer & Blessing' }
+          ],
+          speakers: [
+            { name: 'Rev. Okonkwo', role: 'Prayer Coordinator', bio: 'A prayer warrior with decades of intercessory experience' }
+          ],
+          photos: [
+            'assets/photos/prayer-1.jpg',
+            'assets/photos/prayer-2.jpg'
+          ]
+        },
+        'youth-conf-1': {
+          title: 'Youth Leaders Conference',
+          date: '2026-03-14T09:00:00',
+          displayDate: 'Mar 14, 2026',
+          time: '9:00 AM',
+          location: 'Conference Hall',
+          image: 'assets/events-youth.jpg',
+          description: 'Equipping young leaders with tools and inspiration for effective ministry. Network with other youth leaders and learn practical strategies for discipleship.',
+          schedule: [
+            { time: '9:00 AM', activity: 'Registration & Breakfast' },
+            { time: '9:30 AM', activity: 'Keynote Address' },
+            { time: '10:45 AM', activity: 'Workshop Session 1' },
+            { time: '12:00 PM', activity: 'Lunch' },
+            { time: '1:30 PM', activity: 'Workshop Session 2' },
+            { time: '3:00 PM', activity: 'Closing Remarks & Prayer' }
+          ],
+          speakers: [
+            { name: 'Pastor Ade', role: 'Youth Director', bio: 'Leading youth ministry for 15 years' },
+            { name: 'Dr. Folake', role: 'Leadership Coach', bio: 'Professional leadership trainer and mentor' }
+          ],
+          photos: [
+            'assets/photos/youth-1.jpg',
+            'assets/photos/youth-2.jpg',
+            'assets/photos/youth-3.jpg'
+          ]
+        },
+        'women-fellowship-1': {
+          title: 'Women\'s Fellowship & Workshop',
+          date: '2026-03-21T14:00:00',
+          displayDate: 'Mar 21, 2026',
+          time: '2:00 PM',
+          location: 'Fellowship Hall',
+          image: 'assets/events-women.jpg',
+          description: 'A gathering for women to fellowship, learn, and grow together in faith. Topics include spiritual growth, marriage, motherhood, and purpose in Christ.',
+          schedule: [
+            { time: '2:00 PM', activity: 'Welcome & Worship' },
+            { time: '2:30 PM', activity: 'Teaching Session' },
+            { time: '4:00 PM', activity: 'Small Group Discussions' },
+            { time: '4:45 PM', activity: 'Tea & Fellowship' },
+            { time: '5:30 PM', activity: 'Testimonies & Prayer' }
+          ],
+          speakers: [
+            { name: 'Mrs. Grace Adeyemi', role: 'Women\'s Ministry Leader', bio: 'Passionate about empowering women in faith' }
+          ],
+          photos: [
+            'assets/photos/women-1.jpg',
+            'assets/photos/women-2.jpg'
+          ]
+        },
+        'easter-crusade-1': {
+          title: 'Easter Crusade & Revival',
+          date: '2026-04-11T10:00:00',
+          displayDate: 'Apr 11, 2026',
+          time: '10:00 AM',
+          location: 'Church Grounds',
+          image: 'assets/events-easter.jpg',
+          description: 'A revival crusade celebrating the resurrection of Jesus Christ with powerful worship and messages. Experience the power of the Gospel as we proclaim Christ\'s victory over sin and death.',
+          schedule: [
+            { time: '10:00 AM', activity: 'Opening Service & Praise' },
+            { time: '2:00 PM', activity: 'Afternoon Session & Teaching' },
+            { time: '6:00 PM', activity: 'Evening Service & Evangelism' },
+            { time: '8:00 PM', activity: 'Fellowship Dinner' }
+          ],
+          speakers: [
+            { name: 'Bishop Paul', role: 'Evangelist', bio: 'Renowned evangelist with global ministry' },
+            { name: 'Pastor Emmanuel', role: 'Host Pastor', bio: 'District Pastor' }
+          ],
+          photos: [
+            'assets/photos/easter-1.jpg',
+            'assets/photos/easter-2.jpg',
+            'assets/photos/easter-3.jpg',
+            'assets/photos/easter-4.jpg'
+          ]
+        },
+        'children-camp-1': {
+          title: 'Children\'s Summer Camp',
+          date: '2026-05-02T08:00:00',
+          displayDate: 'May 02, 2026',
+          time: '8:00 AM',
+          location: 'Church Grounds',
+          image: 'assets/events-children.jpg',
+          description: 'A fun-filled camp for children aged 5-12 with games, activities, and Bible lessons. Children will learn about Jesus, make new friends, and have an amazing time.',
+          schedule: [
+            { time: '8:00 AM', activity: 'Registration & Breakfast' },
+            { time: '9:00 AM', activity: 'Games & Icebreakers' },
+            { time: '10:30 AM', activity: 'Bible Story Time' },
+            { time: '12:00 PM', activity: 'Lunch' },
+            { time: '1:30 PM', activity: 'Crafts & Activities' },
+            { time: '3:00 PM', activity: 'Snack Time' },
+            { time: '4:00 PM', activity: 'Closing Worship & Pick-up' }
+          ],
+          speakers: [
+            { name: 'Mrs. Iya Tayo', role: 'Children\'s Ministry Director', bio: 'Works with children for 10+ years' }
+          ],
+          photos: [
+            'assets/photos/children-1.jpg',
+            'assets/photos/children-2.jpg',
+            'assets/photos/children-3.jpg'
+          ]
+        },
+        'outreach-1': {
+          title: 'Community Outreach Program',
+          date: '2026-05-10T08:30:00',
+          displayDate: 'May 10, 2026',
+          time: '8:30 AM',
+          location: 'Ijoko Community',
+          image: 'assets/events-outreach.jpg',
+          description: 'Monthly outreach providing food, clothing, and gospel to those in need. Be part of showing Christ\'s love through practical service to our community.',
+          schedule: [
+            { time: '8:30 AM', activity: 'Team Briefing & Prayer' },
+            { time: '9:00 AM', activity: 'Teams Depart to Communities' },
+            { time: '12:00 PM', activity: 'Regroup at Church' },
+            { time: '1:00 PM', activity: 'Debrief & Lunch' }
+          ],
+          speakers: [
+            { name: 'Pastor John', role: 'Outreach Coordinator', bio: 'Passionate about community service' }
+          ],
+          photos: [
+            'assets/photos/outreach-1.jpg',
+            'assets/photos/outreach-2.jpg'
+          ]
+        },
+        'men-retreat-1': {
+          title: 'Men\'s Spiritual Retreat',
+          date: '2026-06-13T09:00:00',
+          displayDate: 'Jun 13, 2026',
+          time: '9:00 AM',
+          location: 'Retreat Center',
+          image: 'assets/events-men.jpg',
+          description: 'A retreat for men to strengthen faith, build brotherhood, and grow in leadership. Learn practical ways to be godly men, husbands, and fathers.',
+          schedule: [
+            { time: '9:00 AM', activity: 'Check-in & Welcome' },
+            { time: '10:00 AM', activity: 'Opening Session' },
+            { time: '12:30 PM', activity: 'Lunch' },
+            { time: '2:00 PM', activity: 'Workshops & Breakout Sessions' },
+            { time: '6:00 PM', activity: 'Dinner & Fellowship' },
+            { time: '8:00 PM', activity: 'Evening Service' }
+          ],
+          speakers: [
+            { name: 'Pastor Ben', role: 'Men\'s Ministry Leader', bio: 'Leading men\'s ministry with vision and integrity' }
+          ],
+          photos: [
+            'assets/photos/men-1.jpg',
+            'assets/photos/men-2.jpg'
+          ]
+        },
+        'midsummer-fest-1': {
+          title: 'Midsummer Church Festival',
+          date: '2026-07-04T10:00:00',
+          displayDate: 'Jul 04, 2026',
+          time: '10:00 AM',
+          location: 'Church Grounds',
+          image: 'assets/events-festival.jpg',
+          description: 'A joyful festival with praise, worship, entertainment, food, and family activities. Bring your family and friends for a day of celebration and fun.',
+          schedule: [
+            { time: '10:00 AM', activity: 'Opening Ceremony' },
+            { time: '11:00 AM', activity: 'Praise & Worship' },
+            { time: '1:00 PM', activity: 'Food Festival & Games' },
+            { time: '3:00 PM', activity: 'Entertainment & Performances' },
+            { time: '5:00 PM', activity: 'Closing Service' }
+          ],
+          speakers: [
+            { name: 'Pastor Emmanuel', role: 'Host Pastor', bio: 'District Pastor' }
+          ],
+          photos: [
+            'assets/photos/festival-1.jpg',
+            'assets/photos/festival-2.jpg',
+            'assets/photos/festival-3.jpg',
+            'assets/photos/festival-4.jpg'
+          ]
+        },
+        'thanksgiving-1': {
+          title: 'Thanksgiving Service',
+          date: '2026-11-29T10:00:00',
+          displayDate: 'Nov 29, 2026',
+          time: '10:00 AM',
+          location: 'Ijoko District Headquarters',
+          image: 'assets/events-thanksgiving.jpg',
+          description: 'A service of thanksgiving and praise for God\'s goodness throughout the year. Come with a grateful heart to worship and celebrate God\'s faithfulness.',
+          schedule: [
+            { time: '10:00 AM', activity: 'Welcome & Praise' },
+            { time: '10:30 AM', activity: 'Songs of Thanksgiving' },
+            { time: '11:00 AM', activity: 'Message of Gratitude' },
+            { time: '12:00 PM', activity: 'Communion Service' },
+            { time: '1:00 PM', activity: 'Thanksgiving Meal' }
+          ],
+          speakers: [
+            { name: 'Pastor Emmanuel', role: 'District Pastor', bio: 'Senior pastor of district headquarters' }
+          ],
+          photos: [
+            'assets/photos/thanksgiving-1.jpg',
+            'assets/photos/thanksgiving-2.jpg'
+          ]
+        }
+      };
+
+      // Get event ID from URL
+      var urlParams = new URLSearchParams(window.location.search);
+      var eventId = urlParams.get('id') || 'sunday-1';
+      var event = allEvents[eventId];
+      // All 10 Events with full details
+var allEvents = {
+  'sunday-1': {
+    title: 'Sunday Service',
+    date: '2026-03-01T10:30:00',
+    displayDate: 'Mar 01, 2026',
+    time: '10:30 AM',
+    location: 'Ijoko District Headquarters',
+    image: 'assets/events-sunday.jpg',
+    description: 'Join us for our weekly Sunday service with worship, prayer, and inspiring message. This is a family-friendly service where all are welcome to experience God\'s presence and grow in faith.',
+    schedule: [
+      { time: '9:00 AM', activity: 'Welcome & Registration' },
+      { time: '9:30 AM', activity: 'Praise & Worship' },
+      { time: '10:30 AM', activity: 'Message from the Word' },
+      { time: '11:30 AM', activity: 'Altar Call & Ministry' },
+      { time: '12:00 PM', activity: 'Fellowship & Refreshments' }
+    ],
+    speakers: [
+      { name: 'Pastor Emmanuel', role: 'District Pastor', bio: 'Senior pastor with 20+ years of ministry experience' },
+      { name: 'Bro. Adewale', role: 'Worship Leader', bio: 'Leading worship with a heart for God' }
+    ],
+    photos: [
+      'assets/photos/sunday-1.jpg',
+      'assets/photos/sunday-2.jpg',
+      'assets/photos/sunday-3.jpg',
+      'assets/photos/sunday-4.jpg'
+    ]
+  },
+  'prayer-night-1': {
+    title: 'Night of Prayer & Intercession',
+    date: '2026-03-07T22:00:00',
+    displayDate: 'Mar 07, 2026',
+    time: '10:00 PM',
+    location: 'Main Sanctuary',
+    image: 'assets/events-prayer.jpg',
+    description: 'A night dedicated to prayer, worship, and intercession for the church and community. Come prepared to pray for revival, healing, and God\'s work around the world.',
+    schedule: [
+      { time: '10:00 PM', activity: 'Opening Worship & Song' },
+      { time: '10:30 PM', activity: 'Prayer for the Church' },
+      { time: '11:00 PM', activity: 'Prayer for the Nation' },
+      { time: '11:30 PM', activity: 'Personal Prayer Time' },
+      { time: '12:30 AM', activity: 'Refreshments & Fellowship' },
+      { time: '1:00 AM', activity: 'Closing Prayer & Blessing' }
+    ],
+    speakers: [
+      { name: 'Rev. Okonkwo', role: 'Prayer Coordinator', bio: 'A prayer warrior with decades of intercessory experience' }
+    ],
+    photos: [
+      'assets/photos/prayer-1.jpg',
+      'assets/photos/prayer-2.jpg'
+    ]
+  },
+  'youth-conf-1': {
+    title: 'Youth Leaders Conference',
+    date: '2026-03-14T09:00:00',
+    displayDate: 'Mar 14, 2026',
+    time: '9:00 AM',
+    location: 'Conference Hall',
+    image: 'assets/events-youth.jpg',
+    description: 'Equipping young leaders with tools and inspiration for effective ministry. Network with other youth leaders and learn practical strategies for discipleship.',
+    schedule: [
+      { time: '9:00 AM', activity: 'Registration & Breakfast' },
+      { time: '9:30 AM', activity: 'Keynote Address' },
+      { time: '10:45 AM', activity: 'Workshop Session 1' },
+      { time: '12:00 PM', activity: 'Lunch' },
+      { time: '1:30 PM', activity: 'Workshop Session 2' },
+      { time: '3:00 PM', activity: 'Closing Remarks & Prayer' }
+    ],
+    speakers: [
+      { name: 'Pastor Ade', role: 'Youth Director', bio: 'Leading youth ministry for 15 years' },
+      { name: 'Dr. Folake', role: 'Leadership Coach', bio: 'Professional leadership trainer and mentor' }
+    ],
+    photos: [
+      'assets/photos/youth-1.jpg',
+      'assets/photos/youth-2.jpg',
+      'assets/photos/youth-3.jpg'
+    ]
+  },
+  'women-fellowship-1': {
+    title: 'Women\'s Fellowship & Workshop',
+    date: '2026-03-21T14:00:00',
+    displayDate: 'Mar 21, 2026',
+    time: '2:00 PM',
+    location: 'Fellowship Hall',
+    image: 'assets/events-women.jpg',
+    description: 'A gathering for women to fellowship, learn, and grow together in faith. Topics include spiritual growth, marriage, motherhood, and purpose in Christ.',
+    schedule: [
+      { time: '2:00 PM', activity: 'Welcome & Worship' },
+      { time: '2:30 PM', activity: 'Teaching Session' },
+      { time: '4:00 PM', activity: 'Small Group Discussions' },
+      { time: '4:45 PM', activity: 'Tea & Fellowship' },
+      { time: '5:30 PM', activity: 'Testimonies & Prayer' }
+    ],
+    speakers: [
+      { name: 'Mrs. Grace Adeyemi', role: 'Women\'s Ministry Leader', bio: 'Passionate about empowering women in faith' }
+    ],
+    photos: [
+      'assets/photos/women-1.jpg',
+      'assets/photos/women-2.jpg'
+    ]
+  },
+  'easter-crusade-1': {
+    title: 'Easter Crusade & Revival',
+    date: '2026-04-11T10:00:00',
+    displayDate: 'Apr 11, 2026',
+    time: '10:00 AM',
+    location: 'Church Grounds',
+    image: 'assets/events-easter.jpg',
+    description: 'A revival crusade celebrating the resurrection of Jesus Christ with powerful worship and messages. Experience the power of the Gospel as we proclaim Christ\'s victory over sin and death.',
+    schedule: [
+      { time: '10:00 AM', activity: 'Opening Service & Praise' },
+      { time: '2:00 PM', activity: 'Afternoon Session & Teaching' },
+      { time: '6:00 PM', activity: 'Evening Service & Evangelism' },
+      { time: '8:00 PM', activity: 'Fellowship Dinner' }
+    ],
+    speakers: [
+      { name: 'Bishop Paul', role: 'Evangelist', bio: 'Renowned evangelist with global ministry' },
+      { name: 'Pastor Emmanuel', role: 'Host Pastor', bio: 'District Pastor' }
+    ],
+    photos: [
+      'assets/photos/easter-1.jpg',
+      'assets/photos/easter-2.jpg',
+      'assets/photos/easter-3.jpg',
+      'assets/photos/easter-4.jpg'
+    ]
+  },
+  'children-camp-1': {
+    title: 'Children\'s Summer Camp',
+    date: '2026-05-02T08:00:00',
+    displayDate: 'May 02, 2026',
+    time: '8:00 AM',
+    location: 'Church Grounds',
+    image: 'assets/events-children.jpg',
+    description: 'A fun-filled camp for children aged 5-12 with games, activities, and Bible lessons. Children will learn about Jesus, make new friends, and have an amazing time.',
+    schedule: [
+      { time: '8:00 AM', activity: 'Registration & Breakfast' },
+      { time: '9:00 AM', activity: 'Games & Icebreakers' },
+      { time: '10:30 AM', activity: 'Bible Story Time' },
+      { time: '12:00 PM', activity: 'Lunch' },
+      { time: '1:30 PM', activity: 'Crafts & Activities' },
+      { time: '3:00 PM', activity: 'Snack Time' },
+      { time: '4:00 PM', activity: 'Closing Worship & Pick-up' }
+    ],
+    speakers: [
+      { name: 'Mrs. Iya Tayo', role: 'Children\'s Ministry Director', bio: 'Works with children for 10+ years' }
+    ],
+    photos: [
+      'assets/photos/children-1.jpg',
+      'assets/photos/children-2.jpg',
+      'assets/photos/children-3.jpg'
+    ]
+  },
+  'outreach-1': {
+    title: 'Community Outreach Program',
+    date: '2026-05-10T08:30:00',
+    displayDate: 'May 10, 2026',
+    time: '8:30 AM',
+    location: 'Ijoko Community',
+    image: 'assets/events-outreach.jpg',
+    description: 'Monthly outreach providing food, clothing, and gospel to those in need. Be part of showing Christ\'s love through practical service to our community.',
+    schedule: [
+      { time: '8:30 AM', activity: 'Team Briefing & Prayer' },
+      { time: '9:00 AM', activity: 'Teams Depart to Communities' },
+      { time: '12:00 PM', activity: 'Regroup at Church' },
+      { time: '1:00 PM', activity: 'Debrief & Lunch' }
+    ],
+    speakers: [
+      { name: 'Pastor John', role: 'Outreach Coordinator', bio: 'Passionate about community service' }
+    ],
+    photos: [
+      'assets/photos/outreach-1.jpg',
+      'assets/photos/outreach-2.jpg'
+    ]
+  },
+  'men-retreat-1': {
+    title: 'Men\'s Spiritual Retreat',
+    date: '2026-06-13T09:00:00',
+    displayDate: 'Jun 13, 2026',
+    time: '9:00 AM',
+    location: 'Retreat Center',
+    image: 'assets/events-men.jpg',
+    description: 'A retreat for men to strengthen faith, build brotherhood, and grow in leadership. Learn practical ways to be godly men, husbands, and fathers.',
+    schedule: [
+      { time: '9:00 AM', activity: 'Check-in & Welcome' },
+      { time: '10:00 AM', activity: 'Opening Session' },
+      { time: '12:30 PM', activity: 'Lunch' },
+      { time: '2:00 PM', activity: 'Workshops & Breakout Sessions' },
+      { time: '6:00 PM', activity: 'Dinner & Fellowship' },
+      { time: '8:00 PM', activity: 'Evening Service' }
+    ],
+    speakers: [
+      { name: 'Pastor Ben', role: 'Men\'s Ministry Leader', bio: 'Leading men\'s ministry with vision and integrity' }
+    ],
+    photos: [
+      'assets/photos/men-1.jpg',
+      'assets/photos/men-2.jpg'
+    ]
+  },
+  'midsummer-fest-1': {
+    title: 'Midsummer Church Festival',
+    date: '2026-07-04T10:00:00',
+    displayDate: 'Jul 04, 2026',
+    time: '10:00 AM',
+    location: 'Church Grounds',
+    image: 'assets/events-festival.jpg',
+    description: 'A joyful festival with praise, worship, entertainment, food, and family activities. Bring your family and friends for a day of celebration and fun.',
+    schedule: [
+      { time: '10:00 AM', activity: 'Opening Ceremony' },
+      { time: '11:00 AM', activity: 'Praise & Worship' },
+      { time: '1:00 PM', activity: 'Food Festival & Games' },
+      { time: '3:00 PM', activity: 'Entertainment & Performances' },
+      { time: '5:00 PM', activity: 'Closing Service' }
+    ],
+    speakers: [
+      { name: 'Pastor Emmanuel', role: 'Host Pastor', bio: 'District Pastor' }
+    ],
+    photos: [
+      'assets/photos/festival-1.jpg',
+      'assets/photos/festival-2.jpg',
+      'assets/photos/festival-3.jpg',
+      'assets/photos/festival-4.jpg'
+    ]
+  },
+  'thanksgiving-1': {
+    title: 'Thanksgiving Service',
+    date: '2026-11-29T10:00:00',
+    displayDate: 'Nov 29, 2026',
+    time: '10:00 AM',
+    location: 'Ijoko District Headquarters',
+    image: 'assets/events-thanksgiving.jpg',
+    description: 'A service of thanksgiving and praise for God\'s goodness throughout the year. Come with a grateful heart to worship and celebrate God\'s faithfulness.',
+    schedule: [
+      { time: '10:00 AM', activity: 'Welcome & Praise' },
+      { time: '10:30 AM', activity: 'Songs of Thanksgiving' },
+      { time: '11:00 AM', activity: 'Message of Gratitude' },
+      { time: '12:00 PM', activity: 'Communion Service' },
+      { time: '1:00 PM', activity: 'Thanksgiving Meal' }
+    ],
+    speakers: [
+      { name: 'Pastor Emmanuel', role: 'District Pastor', bio: 'Senior pastor of district headquarters' }
+    ],
+    photos: [
+      'assets/photos/thanksgiving-1.jpg',
+      'assets/photos/thanksgiving-2.jpg'
+    ]
+  }
+};
+
+      if (!event) {
+        document.body.innerHTML = '<h1>Event not found</h1>';
+        return;
+      }
+
+      // Populate event details
+      document.getElementById('event-detail-title').textContent = event.title;
+      document.getElementById('event-hero-image').src = event.image;
+      document.getElementById('event-detail-date').textContent = event.displayDate;
+      document.getElementById('event-detail-time').textContent = event.time;
+      document.getElementById('event-detail-location').textContent = event.location;
+      document.getElementById('event-description').textContent = event.description;
+
+      // Populate schedule
+      var scheduleList = document.getElementById('schedule-list');
+      scheduleList.innerHTML = event.schedule.map(function(item) {
+        return '<li class="schedule-item"><div class="schedule-time">' + item.time + '</div><div class="schedule-activity">' + item.activity + '</div></li>';
+      }).join('');
+
+      // Populate speakers
+      var speakersGrid = document.getElementById('speakers-grid');
+      speakersGrid.innerHTML = event.speakers.map(function(speaker) {
+        return '<div class="speaker-card"><h3>' + speaker.name + '</h3><p><strong>' + speaker.role + '</strong></p><p>' + speaker.bio + '</p></div>';
+      }).join('');
+
+      // Populate photos
+      var photoGallery = document.getElementById('photo-gallery');
+      if (event.photos && event.photos.length > 0) {
+        photoGallery.innerHTML = event.photos.map(function(photo) {
+          return '<div class="photo-item"><img src="' + photo + '" alt="Event photo"><div class="photo-overlay"><span>🔍</span></div></div>';
+        }).join('');
+      }
+
+      // Countdown timer
+      function updateCountdown() {
+        var now = new Date().getTime();
+        var eventTime = new Date(event.date).getTime();
+        var distance = eventTime - now;
+
+        if (distance < 0) {
+          document.getElementById('countdown-section').innerHTML = '<h3>✅ This event has passed</h3>';
+          return;
+        }
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown-days').textContent = days;
+        document.getElementById('countdown-hours').textContent = hours;
+        document.getElementById('countdown-minutes').textContent = minutes;
+        document.getElementById('countdown-seconds').textContent = seconds;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // Tab switching
+      window.switchTab = function(tabName) {
+        var tabs = document.querySelectorAll('.tab-content');
+        var buttons = document.querySelectorAll('.tab-button');
+        tabs.forEach(function(tab) { tab.classList.remove('active'); });
+        buttons.forEach(function(btn) { btn.classList.remove('active'); });
+        document.getElementById(tabName).classList.add('active');
+        var activeBtn = document.querySelector('[onclick="switchTab(\'' + tabName + '\')"]');
+        if (activeBtn) activeBtn.classList.add('active');
+      };
+
+      // RSVP function
+      window.openRSVP = function() {
+        var name = prompt('What is your name?');
+        if (name) {
+          var count = prompt('How many people will attend?', '1');
+          if (count) {
+            alert('Thank you, ' + name + '! Your RSVP for ' + count + ' person(s) has been noted. We look forward to seeing you at the ' + event.title + '!');
+          }
+        }
+      };
+    })();
+  </script>
+</body>
+</html>

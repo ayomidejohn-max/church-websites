@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Foursquare Gospel Church, Ijoko District HQ</title>
+  <meta name="description" content="Contact Foursquare Gospel Church — Ijoko Missionary District Headquarters. Service times, office hours, location and contact form.">
+  <link rel="icon" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Foursquare Ijoko logo" class="logo">
+        <span class="brand-text">Foursquare Gospel Church — Ijoko District HQ</span>
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="staff.html">Leadership</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="donate.html" class="btn-donate">Give</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <section class="hero hero-sm">
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <h1>Contact Us</h1>
+          <p>We're glad you want to connect. Use the form below, call, or visit us at the district headquarters.</p>
+        </div>
+        <div class="hero-media">
+          <img src="assets/contact-hero.jpg" alt="Church front view" loading="lazy" width="1200" height="700">
+        </div>
+      </div>
+    </section>
+
+    <section class="container contact-grid">
+      <div class="contact-info">
+        <h2>Get in touch</h2>
+        <p>We'd love to hear from you — questions about services, ministries, events, or how to get involved.</p>
+
+        <div class="contact-cards">
+          <div class="card">
+            <h3>Visit / Service times</h3>
+            <p><strong>Sunday:</strong> 8:00 AM & 10:30 AM<br><strong>Midweek Prayer:</strong> Wed 6:00 PM</p>
+          </div>
+
+          <div class="card">
+            <h3>Address</h3>
+            <p>Foursquare Gospel Church — Ijoko Missionary District Headquarters<br>Ijoko, Ogun State, Nigeria</p>
+            <p><a href="https://www.google.com/maps/search/?api=1&query=Ijoko+Ogun+State+Nigeria" target="_blank" rel="noopener">Open in Google Maps</a></p>
+          </div>
+
+          <div class="card">
+            <h3>Contact</h3>
+            <p><strong>Email:</strong> <a href="mailto:info@foursquare-ijoko.example">info@foursquare-ijoko.example</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+2348000000000">+234 800 000 0000</a></p>
+          </div>
+
+          <div class="card">
+            <h3>Office Hours</h3>
+            <p>Mon — Fri: 9:00 AM — 4:00 PM<br>Sat: 9:00 AM — 12:00 PM</p>
+          </div>
+
+          <div class="card">
+            <h3>Social</h3>
+            <p>
+              <a href="#" aria-label="Facebook">Facebook</a> ·
+              <a href="#" aria-label="YouTube">YouTube</a> ·
+              <a href="#" aria-label="Instagram">Instagram</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="contact-form-wrap">
+        <h2>Send us a message</h2>
+        <p>If you want to plan a visit, ask about ministries or request prayer, use the form below. We'll respond as soon as we can.</p>
+
+        <!-- Example: Replace action with Formspree/Netlify/your backend endpoint -->
+        <form id="contact-form" class="form" aria-label="Contact form">
+          <div class="form-row">
+            <label for="c-name">Full name</label>
+            <input id="c-name" name="name" type="text" required>
+          </div>
+
+          <div class="form-row">
+            <label for="c-email">Email address</label>
+            <input id="c-email" name="email" type="email" required>
+          </div>
+
+          <div class="form-row">
+            <label for="c-phone">Phone (optional)</label>
+            <input id="c-phone" name="phone" type="tel" placeholder="+234">
+          </div>
+
+          <div class="form-row">
+            <label for="c-subject">Subject</label>
+            <input id="c-subject" name="subject" type="text" placeholder="e.g. Visit, Prayer request, Ministry question" required>
+          </div>
+
+          <div class="form-row">
+            <label for="c-message">Message</label>
+            <textarea id="c-message" name="message" rows="6" required></textarea>
+          </div>
+
+          <div class="form-row form-actions">
+            <button class="btn" type="submit">Send message</button>
+            <div id="contact-result" class="form-result" aria-live="polite"></div>
+          </div>
+        </form>
+
+        <p class="small">By contacting us you agree to receive a reply from the church. We respect your privacy — see our <a href="privacy.html">privacy policy</a>.</p>
+      </aside>
+    </section>
+
+    <section class="container map-section">
+      <h2>Where to find us</h2>
+      <div class="map-wrap">
+        <!-- Replace the src with your actual Google Maps embed for the precise location -->
+        <iframe
+          title="Map showing Foursquare Gospel Church Ijoko"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d...REPLACE_WITH_EMBED..."
+          width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <noscript>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=Ijoko+Ogun+State+Nigeria" target="_blank" rel="noopener">View map on Google Maps</a></p>
+        </noscript>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-about">
+        <a href="index.html" class="brand-mini">
+          <img src="assets/logo-white.png" alt="Foursquare Ijoko logo" width="120" height="40">
+        </a>
+        <p>Foursquare Gospel Church — Ijoko Missionary District Headquarters.<br>We exist to lead people into a growing relationship with Jesus Christ.</p>
+        <p><strong>Address:</strong> Ijoko, Ogun State, Nigeria</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="admin">Church Admin Portal</a></li
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <p><strong>Service times:</strong> Sun 8:00 & 10:30 AM</p>
+        <p><strong>Email:</strong> <a href="mailto:info@foursquare-ijoko.example">info@foursquare-ijoko.example</a></p>
+        <p><strong>Phone:</strong> +234 800 000 0000 (placeholder)</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <small>© <span id="current-year"></span> Foursquare Gospel Church — Ijoko Missionary District Headquarters</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+<script>
+    (function () {
+        // Set current year in footer
+        var yEl = document.getElementById('current-year');
+        if (yEl) yEl.textContent = new Date().getFullYear();
+
+        var form = document.getElementById('contact-form');
+        var result = document.getElementById('contact-result');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            result.textContent = '';
+            result.className = 'form-result';
+
+            var name = document.getElementById('c-name').value.trim();
+            var email = document.getElementById('c-email').value.trim();
+            var phone = document.getElementById('c-phone').value.trim() || 'Not provided';
+            var subject = document.getElementById('c-subject').value.trim();
+            var message = document.getElementById('c-message').value.trim();
+
+            console.log('Form submitted:', { name, email, phone, subject, message }); // Debug
+
+            if (!name || !email || !subject || !message) {
+                result.textContent = 'Please complete all required fields.';
+                result.classList.add('error');
+                return;
+            }
+
+            // Create message object for admin
+            const messageData = {
+                id: Date.now().toString(),
+                name: name,
+                email: email,
+                phone: phone,
+                subject: subject,
+                message: message,
+                dateSent: new Date().toLocaleDateString(),
+                status: 'Unread'
+            };
+
+            console.log('Message data:', messageData); // Debug
+
+            // Save to LocalStorage
+            try {
+                let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+                messages.push(messageData);
+                localStorage.setItem('contactMessages', JSON.stringify(messages));
+                console.log('✅ Saved to localStorage:', messages); // Debug
+            } catch (err) {
+                console.error('❌ Error saving message:', err);
+                result.textContent = 'Error saving message. Please try again.';
+                result.classList.add('error');
+                return;
+            }
+
+            // Show success message
+            result.textContent = 'Thank you, ' + (name.split(' ')[0] || 'friend') + '. Your message has been received. We will get back to you at ' + email + '.';
+            result.classList.add('success');
+            form.reset();
+        });
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Give / Donate — Foursquare Gospel Church, Ijoko District HQ</title>
+  <meta name="description" content="Give to Foursquare Gospel Church — Ijoko Missionary District Headquarters. Support ministry, outreach and church operations." />
+  <link rel="icon" href="assets/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Foursquare Ijoko logo" class="logo">
+        <span class="brand-text">Foursquare Gospel Church — Ijoko District HQ</span>
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="staff.html">Leadership</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html" class="btn-donate active">Give</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <section class="hero hero-sm">
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <h1>Support the Work — Give</h1>
+          <p>Your generosity helps us run ministries, reach our community, and care for those in need. Thank you for partnering with us.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container donate-intro">
+      <div class="donate-grid">
+        <div class="donate-card">
+          <h2>Ways to Give</h2>
+          <ul>
+            <li><strong>Bank Transfer</strong> — Use our bank details below for direct transfers.</li>
+            <li><strong>Online Payments</strong> — Paystack / Flutterwave / PayPal (secure gateways).</li>
+            <li><strong>In Person</strong> — Give during service or at the church office.</li>
+            <li><strong>Pledge</strong> — Make a pledge and we'll follow up to set up recurring support.</li>
+          </ul>
+        </div>
+
+        <aside class="donate-card donate-details" aria-labelledby="bank-heading">
+          <h3 id="bank-heading">Bank Details (Example)</h3>
+          <p><strong>Bank:</strong> First Example Bank</p>
+          <p><strong>Account name:</strong> Foursquare Gospel Church Ijoko</p>
+          <p><strong>Account number:</strong> 1234567890</p>
+          <p><strong>Sort/Branch:</strong> Ijoko Branch</p>
+          <p class="small">Please include your name and purpose in the transaction narration and email a copy of the transfer slip to <a href="mailto:finance@foursquare-ijoko.example">finance@foursquare-ijoko.example</a>.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container donate-form-section" aria-labelledby="give-heading">
+      <h2 id="give-heading">Give Online / Make a Pledge</h2>
+
+      <form id="donation-form" class="donation-form" aria-label="Donation form" novalidate>
+        <div class="form-row">
+          <label for="donation-amount">Amount (NGN)</label>
+          <div class="amount-presets" role="radiogroup" aria-label="Preset donation amounts">
+            <label><input type="radio" name="preset" value="1000"> ₦1,000</label>
+            <label><input type="radio" name="preset" value="5000"> ₦5,000</label>
+            <label><input type="radio" name="preset" value="10000"> ₦10,000</label>
+            <label><input type="radio" name="preset" value="20000"> ₦20,000</label>
+            <label><input type="radio" name="preset" value="custom" checked> Custom</label>
+          </div>
+          <input id="donation-amount" name="amount" type="number" min="100" placeholder="Enter amount (₦)" required inputmode="numeric" aria-required="true">
+        </div>
+
+        <div class="form-row">
+          <label for="donation-purpose">Purpose</label>
+          <select id="donation-purpose" name="purpose" required>
+            <option value="general">General Tithe/Offering</option>
+            <option value="outreach">Outreach & Community</option>
+            <option value="building">Building / Maintenance</option>
+            <option value="missions">Missions</option>
+            <option value="other">Other (specify in notes)</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="donor-name">Your full name</label>
+          <input id="donor-name" name="name" type="text" placeholder="e.g. John Doe" required>
+        </div>
+
+        <div class="form-row">
+          <label for="donor-email">Email address (for receipt)</label>
+          <input id="donor-email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-row">
+          <label for="donor-phone">Phone (optional)</label>
+          <input id="donor-phone" name="phone" type="tel" placeholder="+234" inputmode="tel">
+        </div>
+
+        <div class="form-row">
+          <label for="donation-method">Payment method</label>
+          <select id="donation-method" name="method" required>
+            <option value="online">Online (Paystack / Flutterwave / PayPal)</option>
+            <option value="bank">Bank Transfer / Deposit</option>
+            <option value="inperson">In person (service / office)</option>
+            <option value="pledge">Make a pledge — contact me</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="donation-notes">Notes (optional)</label>
+          <textarea id="donation-notes" name="notes" rows="3" placeholder="e.g. first time visitor, gift for outreach, etc."></textarea>
+        </div>
+
+        <div class="form-row form-actions">
+          <button id="donate-btn" class="btn" type="submit" aria-busy="false">Proceed to Donate</button>
+          <div id="donation-result" class="form-result" aria-live="polite" role="status"></div>
+        </div>
+      </form>
+
+      <div id="bank-instructions" class="donation-instructions" hidden tabindex="-1" aria-hidden="true">
+        <h3>Bank Transfer Instructions</h3>
+        <p>Use the bank details above to make your transfer. After transferring, please email the transfer screenshot to <a href="mailto:finance@foursquare-ijoko.example">finance@foursquare-ijoko.example</a> with your name, amount and purpose so we can issue a receipt.</p>
+      </div>
+
+      <div id="online-instructions" class="donation-instructions" hidden tabindex="-1" aria-hidden="true">
+        <h3>Secure Online Payment</h3>
+        <p>You will be redirected to a secure payment provider to complete your donation. Accepted cards and local payment methods depend on the provider you choose.</p>
+        <p><strong>Note:</strong> Replace the placeholder payment links with your Paystack/Flutterwave/PayPal integration before going live.</p>
+      </div>
+
+    </section>
+
+    <section class="container donate-privacy">
+      <h2>Giving & Privacy</h2>
+      <p>We treat your personal information and gifts with confidentiality. Receipts are issued on request. If you have questions, contact our finance team at <a href="mailto:finance@foursquare-ijoko.example">finance@foursquare-ijoko.example</a>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-about">
+        <a href="index.html" class="brand-mini">
+          <img src="assets/logo-white.png" alt="Foursquare Ijoko logo" width="120" height="40">
+        </a>
+        <p>Foursquare Gospel Church — Ijoko Missionary District Headquarters.<br>We exist to lead people into a growing relationship with Jesus Christ.</p>
+        <p><strong>Address:</strong> Ijoko, Ogun State, Nigeria</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <p><strong>Service times:</strong> Sun 8:00 & 10:30 AM</p>
+        <p><strong>Email:</strong> <a href="mailto:info@foursquare-ijoko.example">info@foursquare-ijoko.example</a></p>
+        <p><strong>Phone:</strong> +234 800 000 0000 (placeholder)</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <small>© <span id="current-year"></span> Foursquare Gospel Church — Ijoko Missionary District Headquarters</small>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+  <script>
+  (function () {
+    // Elements
+    var form = document.getElementById('donation-form');
+    var amountInput = document.getElementById('donation-amount');
+    var presets = document.querySelectorAll('.amount-presets [name="preset"]');
+    var methodSelect = document.getElementById('donation-method');
+    var bankInst = document.getElementById('bank-instructions');
+    var onlineInst = document.getElementById('online-instructions');
+    var result = document.getElementById('donation-result');
+    var donateBtn = document.getElementById('donate-btn');
+
+    // Simple email validator (not exhaustive)
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    // Sync presets with custom input
+    presets.forEach(function (r) {
+      r.addEventListener('change', function () {
+        if (r.value === 'custom') {
+          amountInput.value = '';
+          amountInput.focus();
+        } else {
+          amountInput.value = r.value;
+        }
+      });
+    });
+
+    // Show instructions based on payment method
+    function updateInstructions() {
+      var m = methodSelect.value;
+      var showBank = m === 'bank';
+      var showOnline = m === 'online';
+
+      bankInst.hidden = !showBank;
+      bankInst.setAttribute('aria-hidden', String(!showBank));
+      onlineInst.hidden = !showOnline;
+      onlineInst.setAttribute('aria-hidden', String(!showOnline));
+
+      if (showBank) {
+        // focus the bank instructions for screen readers
+        bankInst.focus();
+      } else if (showOnline) {
+        onlineInst.focus();
+      }
+    }
+    methodSelect.addEventListener('change', updateInstructions);
+    updateInstructions();
+
+    // Helper to show messages
+    function showMessage(text, type) {
+      if (!result) return;
+      result.textContent = text;
+      result.classList.remove('error', 'success');
+      if (type === 'error') result.classList.add('error');
+      else if (type === 'success') result.classList.add('success');
+      result.focus();
+    }
+
+    // Disable/enable UI during processing
+    function setProcessing(on) {
+      if (on) {
+        donateBtn.setAttribute('disabled', 'disabled');
+        donateBtn.setAttribute('aria-busy', 'true');
+      } else {
+        donateBtn.removeAttribute('disabled');
+        donateBtn.setAttribute('aria-busy', 'false');
+      }
+    }
+
+    // Form submit handler
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Clear previous messages
+      if (result) { result.textContent = ''; result.classList.remove('error', 'success'); }
+
+      var formData = new FormData(form);
+      var amount = Number((formData.get('amount') || '').toString().trim());
+      var name = (formData.get('name') || '').toString().trim();
+      var email = (formData.get('email') || '').toString().trim();
+      var method = (formData.get('method') || '').toString();
+
+      // Validation
+      if (!amount || isNaN(amount) || amount < 100) {
+        showMessage('Please enter a valid amount (minimum ₦100).', 'error');
+        amountInput.focus();
+        return;
+      }
+      if (!name) {
+        showMessage('Please provide your full name for a receipt.', 'error');
+        document.getElementById('donor-name').focus();
+        return;
+      }
+      if (!email || !isValidEmail(email)) {
+        showMessage('Please provide a valid email address for a receipt.', 'error');
+        document.getElementById('donor-email').focus();
+        return;
+      }
+
+      // Handle methods
+      if (method === 'bank') {
+        bankInst.hidden = false;
+        bankInst.setAttribute('aria-hidden', 'false');
+        showMessage('Thank you, ' + name + '. Please complete the bank transfer using the details on this page. After transferring, email a copy of the transaction to finance@foursquare-ijoko.example with your name and amount so we can issue a receipt.', 'success');
+        // reset form for convenience
+        form.reset();
+        amountInput.value = '';
+        updateInstructions();
+        return;
+      }
+
+      if (method === 'inperson') {
+        showMessage('Thank you, ' + name + '. You can give your gift during any Sunday service or at the church office. We will contact you if a receipt is requested.', 'success');
+        form.reset();
+        amountInput.value = '';
+        updateInstructions();
+        return;
+      }
+
+      if (method === 'pledge') {
+        showMessage('Thanks, ' + name + '. Someone from our finance team will contact you about your pledge soon.', 'success');
+        form.reset();
+        amountInput.value = '';
+        updateInstructions();
+        return;
+      }
+
+      if (method === 'online') {
+        // Replace providerUrl with your secure server-side checkout endpoint before production
+        var providerUrl = 'https://example-payment-provider.example/checkout';
+        var payload = {
+          amount: String(amount),
+          currency: 'NGN',
+          name: name,
+          email: email,
+          purpose: formData.get('purpose') || '',
+          notes: formData.get('notes') || ''
+        };
+
+        // Prepare a safe query (demo only). In production, you must create a checkout session server-side.
+        var query = new URLSearchParams(payload).toString();
+
+        // UX: disable button to prevent double clicks
+        setProcessing(true);
+        showMessage('Redirecting to secure payment page…', 'success');
+
+        // Use a full-page redirect (less likely to be blocked by popup blockers)
+        try {
+          // If you have a server endpoint that returns the final checkout URL, POST to it and redirect to the returned URL.
+          // For demo, we redirect to providerUrl with query string (not secure).
+          location.href = providerUrl + '?' + query;
+        } catch (err) {
+          // Fallback: re-enable and show error
+          setProcessing(false);
+          showMessage('Unable to open payment page. Please try again or contact finance@foursquare-ijoko.example.', 'error');
+        }
+
+        // Do not reset the form here — user is leaving the page.
+        return;
+      }
+
+      // Unknown method (shouldn't happen)
+      showMessage('Unknown payment method selected.', 'error');
+    });
+
+    // UX: clear result when user edits amount
+    amountInput.addEventListener('input', function () {
+      if (result) { result.textContent = ''; result.classList.remove('error', 'success'); }
+    });
+
+  })();
+  </script>
+
+  <!-- Notes:
+    - IMPORTANT: Replace providerUrl with a secure server-side endpoint that creates a payment session (Paystack / Flutterwave / PayPal).
+    - Do not send transaction-critical data via client-side query strings in production.
+    - Consider disabling the donate button while awaiting a server response and showing a spinner for a better UX.
+  -->
+</body>
+</html>

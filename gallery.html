@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gallery — Foursquare Gospel Church, Ijoko District HQ</title>
+  <meta name="description" content="Photo gallery — Foursquare Gospel Church Ijoko Missionary District Headquarters. Worship, events and community." />
+  <link rel="icon" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Foursquare Ijoko logo" class="logo">
+        <span class="brand-text">Foursquare Gospel Church — Ijoko District HQ</span>
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="staff.html">Leadership</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html" class="btn-donate">Give</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main">
+    <section class="hero hero-sm">
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <h1>Photo & Media Gallery</h1>
+          <p>Browse photos from services, events, outreach and ministry life. Click any photo to view larger and read captions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container gallery-controls" aria-labelledby="gallery-controls-heading">
+      <h2 id="gallery-controls-heading" class="visually-hidden">Gallery controls</h2>
+      <div class="controls-row">
+        <label for="filter-cat" class="visually-hidden">Filter by category</label>
+        <select id="filter-cat" aria-label="Filter gallery by category">
+          <option value="">All categories</option>
+          <option value="worship">Worship</option>
+          <option value="events">Events</option>
+          <option value="outreach">Outreach</option>
+          <option value="ministry">Ministry</option>
+          <option value="community">Community</option>
+        </select>
+
+        <label for="search-gallery" class="visually-hidden">Search photos</label>
+        <input id="search-gallery" type="search" placeholder="Search captions (e.g. 'Christmas')" aria-label="Search gallery">
+      </div>
+    </section>
+
+    <section class="container gallery-grid" aria-live="polite">
+      <ul id="gallery" class="grid" aria-label="Photo gallery">
+        <!-- Replace filenames and captions with your own images -->
+        <li class="gallery-item" data-category="worship" data-caption="Sunday worship service — praise and worship" >
+          <a href="assets/gallery/service1-large.jpg" data-full="assets/gallery/service1-large.jpg" data-caption="Sunday worship service — praise and worship">
+            <img src="assets/gallery/service1-thumb.jpg" alt="Sunday worship service" loading="lazy" width="800" height="500">
+          </a>
+        </li>
+
+        <li class="gallery-item" data-category="events" data-caption="Christmas Thanksgiving Service 2025">
+          <a href="assets/gallery/christmas-2025-large.jpg" data-full="assets/gallery/christmas-2025-large.jpg" data-caption="Christmas Thanksgiving Service 2025">
+            <img src="assets/gallery/christmas-2025-thumb.jpg" alt="Christmas thanksgiving service" loading="lazy" width="800" height="500">
+          </a>
+        </li>
+
+        <li class="gallery-item" data-category="outreach" data-caption="Community feeding outreach">
+          <a href="assets/gallery/outreach1-large.jpg" data-full="assets/gallery/outreach1-large.jpg" data-caption="Community feeding outreach">
+            <img src="assets/gallery/outreach1-thumb.jpg" alt="Community outreach and feeding" loading="lazy" width="800" height="500">
+          </a>
+        </li>
+
+        <li class="gallery-item" data-category="ministry" data-caption="Youth ministry meeting">
+          <a href="assets/gallery/youth1-large.jpg" data-full="assets/gallery/youth1-large.jpg" data-caption="Youth ministry meeting">
+            <img src="assets/gallery/youth1-thumb.jpg" alt="Youth ministry meeting" loading="lazy" width="800" height="500">
+          </a>
+        </li>
+
+        <li class="gallery-item" data-category="community" data-caption="Volunteer team at local school">
+          <a href="assets/gallery/volunteer1-large.jpg" data-full="assets/gallery/volunteer1-large.jpg" data-caption="Volunteer team at local school">
+            <img src="assets/gallery/volunteer1-thumb.jpg" alt="Volunteer team at local school" loading="lazy" width="800" height="500">
+          </a>
+        </li>
+
+        <li class="gallery-item" data-category="worship" data-caption="Worship team leading praise">
+          <a href="assets/gallery/worship1-large.jpg" data-full="assets/gallery/worship1-large.jpg" data-caption="Worship team leading praise">
+            <img src="assets/gallery/worship1-thumb.jpg" alt="Worship team leading praise" loading="lazy" width="800" height="500">
+          </a>
+        </li>
+
+        <!-- Add more items as needed -->
+      </ul>
+
+      <p id="gallery-empty" class="no-results" hidden>No images match your search or filter.</p>
+    </section>
+  </main>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image viewer">
+    <button id="lb-close" class="lb-btn lb-close" aria-label="Close (Esc)">&times;</button>
+    <button id="lb-prev" class="lb-btn lb-prev" aria-label="Previous (Left arrow)">‹</button>
+    <div class="lb-stage">
+      <img id="lb-image" src="" alt="" width="1400" height="900">
+      <figcaption id="lb-caption" class="lb-caption"></figcaption>
+    </div>
+    <button id="lb-next" class="lb-btn lb-next" aria-label="Next (Right arrow)">›</button>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-about">
+        <a href="index.html" class="brand-mini">
+          <img src="assets/logo-white.png" alt="Foursquare Ijoko logo" width="120" height="40">
+        </a>
+        <p>Foursquare Gospel Church — Ijoko Missionary District Headquarters.<br>We exist to lead people into a growing relationship with Jesus Christ.</p>
+        <p><strong>Address:</strong> Ijoko, Ogun State, Nigeria</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <p><strong>Service times:</strong> Sun 8:00 & 10:30 AM</p>
+        <p><strong>Email:</strong> <a href="mailto:info@foursquare-ijoko.example">info@foursquare-ijoko.example</a></p>
+        <p><strong>Phone:</strong> +234 800 000 0000 (placeholder)</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <small>© <span id="current-year"></span> Foursquare Gospel Church — Ijoko Missionary District Headquarters</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script>
+  (function () {
+    // footer year (in case main.js doesn't set it)
+    var yEl = document.getElementById('current-year');
+    if (yEl) yEl.textContent = new Date().getFullYear();
+
+    // Gallery filtering/search
+    var gallery = document.getElementById('gallery');
+    var items = Array.from(gallery.querySelectorAll('.gallery-item'));
+    var filter = document.getElementById('filter-cat');
+    var search = document.getElementById('search-gallery');
+    var emptyMsg = document.getElementById('gallery-empty');
+
+    function applyGalleryFilter() {
+      var q = (search.value || '').trim().toLowerCase();
+      var cat = (filter.value || '').toLowerCase();
+
+      var shown = 0;
+      items.forEach(function (li) {
+        var caption = (li.getAttribute('data-caption') || '').toLowerCase();
+        var c = (li.getAttribute('data-category') || '').toLowerCase();
+        var matchesCat = !cat || c === cat;
+        var matchesQ = !q || caption.indexOf(q) !== -1;
+        if (matchesCat && matchesQ) {
+          li.style.display = '';
+          shown++;
+        } else {
+          li.style.display = 'none';
+        }
+      });
+
+      emptyMsg.hidden = shown > 0;
+    }
+
+    filter.addEventListener('change', applyGalleryFilter);
+    search.addEventListener('input', function () { applyGalleryFilter(); });
+
+    // Lightbox
+    var lightbox = document.getElementById('lightbox');
+    var lbImage = document.getElementById('lb-image');
+    var lbCaption = document.getElementById('lb-caption');
+    var lbClose = document.getElementById('lb-close');
+    var lbPrev = document.getElementById('lb-prev');
+    var lbNext = document.getElementById('lb-next');
+
+    var visibleItems = function () { return items.filter(function (i) { return i.style.display !== 'none'; }); };
+
+    var currentIndex = -1;
+
+    function openLightbox(index) {
+      var visible = visibleItems();
+      if (!visible.length) return;
+      currentIndex = Math.max(0, Math.min(index, visible.length - 1));
+      var link = visible[currentIndex].querySelector('a');
+      var src = link.getAttribute('data-full') || link.href;
+      var caption = link.getAttribute('data-caption') || '';
+      lbImage.src = src;
+      lbImage.alt = caption || (link.querySelector('img') ? link.querySelector('img').alt : '');
+      lbCaption.textContent = caption;
+      lightbox.removeAttribute('aria-hidden');
+      lightbox.classList.add('open');
+      document.body.classList.add('no-scroll');
+      lbClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightbox.classList.remove('open');
+      document.body.classList.remove('no-scroll');
+      lbImage.src = '';
+      lbCaption.textContent = '';
+      currentIndex = -1;
+    }
+
+    function showPrev() {
+      if (currentIndex <= 0) currentIndex = visibleItems().length - 1;
+      else currentIndex--;
+      openLightbox(currentIndex);
+    }
+    function showNext() {
+      if (currentIndex >= visibleItems().length - 1) currentIndex = 0;
+      else currentIndex++;
+      openLightbox(currentIndex);
+    }
+
+    // Click handlers: open lightbox for clicked thumbnail
+    gallery.addEventListener('click', function (e) {
+      var a = e.target.closest('a');
+      if (!a) return;
+      e.preventDefault();
+      var li = a.closest('.gallery-item');
+      var visible = visibleItems();
+      var idx = visible.indexOf(li);
+      if (idx !== -1) openLightbox(idx);
+    });
+
+    // Lightbox controls
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', function (e) { e.stopPropagation(); showPrev(); });
+    lbNext.addEventListener('click', function (e) { e.stopPropagation(); showNext(); });
+
+    // keyboard support
+    document.addEventListener('keydown', function (e) {
+      if (lightbox.getAttribute('aria-hidden') === 'true') return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+    });
+
+    // click outside image closes
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // ensure correct indices after filtering (no-op but safe)
+    filter.addEventListener('change', function () { currentIndex = -1; });
+    search.addEventListener('input', function () { currentIndex = -1; });
+
+    // progressive enhancement: if images are missing, hide the item
+    items.forEach(function (li) {
+      var img = li.querySelector('img');
+      img.addEventListener('error', function () { li.style.display = 'none'; applyGalleryFilter(); });
+    });
+
+    // initial filter (in case default selected)
+    applyGalleryFilter();
+  })();
+  </script>
+
+  <!-- Minimal CSS you can add to css/styles.css if grid or lightbox styles are missing:
+  .gallery-grid .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; list-style:none; padding:0; margin:0;}
+  .gallery-item img { width:100%; height:auto; display:block; border-radius:6px; }
+  .lightbox { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.85); z-index:1000; opacity:0; pointer-events:none; transition:opacity .18s ease; }
+  .lightbox.open { opacity:1; pointer-events:auto; }
+  .lb-stage { max-width:90%; max-height:85%; text-align:center; }
+  .lb-stage img { max-width:100%; max-height:80vh; border-radius:6px; display:block; margin:0 auto; }
+  .lb-caption { color:#fff; margin-top:.5rem; font-size:.95rem; }
+  .lb-btn { position:absolute; background:transparent; border:0; color:#fff; font-size:2rem; padding:.5rem; cursor:pointer; }
+  .lb-close { top:1rem; right:1rem; }
+  .lb-prev { left:1rem; top:50%; transform:translateY(-50%); }
+  .lb-next { right:1rem; top:50%; transform:translateY(-50%); }
+  .no-scroll { overflow:hidden; }
+  -->
+
+</body>
+</html>
